@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+<div class="p-3 mb-2 bg-dark text-white">
+<h3 class="text-center" > 
+    Create your post here..! </h3>
+</div>
+    
+<!-- message -->
+
+<div class="container">
+{% if messages %}
+    <ul>    
+{% for message in messages %}
+   <li> {{ message }} </li>
+   {% endfor %} 
+        </ul>
+   {% endif %} 
+</div>
+
+<!-- form -->
+<div class="container">
+
+<form action="" method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    
+    <button class="waves-effect waves-light btn" type="submit"> Create </button>
+</form>
+</div>    
+    
+{% endblock%}
